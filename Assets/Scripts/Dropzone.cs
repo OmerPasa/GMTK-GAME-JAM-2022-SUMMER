@@ -5,16 +5,9 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 
-public class Dropzone : MonoBehaviour , IDropHandler, IPointerEnterHandler , IPointerExitHandler
+public class Dropzone : MonoBehaviour , IDropHandler
 {
     public GameObject BattleSystem;
-    public void OnPointerEnter(PointerEventData eventData){
-        //UnityEngine.Debug.Log ("Entered");
-    }
-
-    public void OnPointerExit(PointerEventData eventData){
-        //UnityEngine.Debug.Log ("Exited");
-    }
 
  public void OnDrop (PointerEventData eventData){
     UnityEngine.Debug.Log (eventData.pointerDrag.name + "was dropped onto" + gameObject.name);
@@ -61,7 +54,14 @@ public class Dropzone : MonoBehaviour , IDropHandler, IPointerEnterHandler , IPo
         //Player.GetDamage(5)
         BattleSystem.GetComponent<BattleSystem>().OnAttackButton(30);
         gameObject.SetActive (false);
-    }else
+    }
+    else if (input == "Meditation")
+    {
+        //Player.GetDamage(5)
+        BattleSystem.GetComponent<BattleSystem>().OnHealButton(Random.Range(1, 40));
+        gameObject.SetActive (false);
+    }
+    else
     {
         gameObject.SetActive (false);
     }

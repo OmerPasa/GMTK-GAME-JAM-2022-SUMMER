@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public enum BattleState { START, PLAYERTURN, ENEMYTURN, WON, LOST }
 
 public class BattleSystem : MonoBehaviour
 {
 	public GameObject DropzoneObject;
+	public GameObject Hand;
+	public List<GameObject> Cards = new List<GameObject>();
 
 	public GameObject playerPrefab;
 	public GameObject enemyPrefab;
@@ -113,9 +116,9 @@ public class BattleSystem : MonoBehaviour
 		dialogueText.text = "Choose an action:";
 	}
 
-	IEnumerator PlayerHeal()
+	IEnumerator PlayerHeal(int hp)
 	{
-		playerUnit.Heal(5);
+		playerUnit.Heal(hp);
 
 		playerHUD.SetHP(playerUnit.currentHP);
 		dialogueText.text = "You feel renewed strength!";
@@ -134,12 +137,22 @@ public class BattleSystem : MonoBehaviour
 		StartCoroutine(PlayerAttack(Dam));
 	}
 
-	public void OnHealButton()
+	public void OnHealButton(int hp)
 	{
 		if (state != BattleState.PLAYERTURN)
 			return;
 
-		StartCoroutine(PlayerHeal());
+		StartCoroutine(PlayerHeal(hp));
+	}
+
+	public void OnDrawCard()
+	{
+		GameObject randCard = Cards[Random.Range(0, Cards.Count)];
+
+		if (Hand.transform.childCount < 6)
+		{
+			randCard.transform.SetParent(Hand.transform , false);
+		}
 	}
 
 }
