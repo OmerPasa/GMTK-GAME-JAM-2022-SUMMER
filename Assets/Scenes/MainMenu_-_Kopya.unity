@@ -216,7 +216,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 122118294}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 8e439aa4d041b9746b977a205fee9552, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!61 &122118298
@@ -284,6 +284,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa223aa0fba5b7646b6890e34ae431e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: 0
+  y: 0
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -434,9 +436,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1099315637}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4955a6ac577f7b047942e879484b11e4, type: 3}
+  m_Script: {fileID: 11500000, guid: 8e439aa4d041b9746b977a205fee9552, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  yonet: {fileID: 0}
+  gidilecekOdaNumarasi: 0
+  sprite1: {fileID: 0}
+  sprite2: {fileID: 0}
+  ayarlarMenusu: {fileID: 0}
+  icerdema: 0
+  ayarlar: 
 --- !u!61 &1099315641
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -491,7 +500,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1913770344}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c3a13f255c94c946aad12a1e3b011e8, type: 3}
+  m_Script: {fileID: 11500000, guid: 45d6f014b7e5f9747bd9310e95ca13ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!61 &1913770346
