@@ -7,6 +7,7 @@ public enum BattleState { START, PLAYERTURN, ENEMYTURN, WON, LOST }
 
 public class BattleSystem : MonoBehaviour
 {
+	public GameObject DropzoneObject;
 
 	public GameObject playerPrefab;
 	public GameObject enemyPrefab;
@@ -57,8 +58,8 @@ public class BattleSystem : MonoBehaviour
 		enemyHUD.SetHP(enemyUnit.currentHP);
 		dialogueText.text = "The attack is successful!";
 
-		yield return new WaitForSeconds(2f);
-
+		yield return new WaitForSeconds(1f);
+		Debug.Log("waited");
 		if(isDead)
 		{
 			state = BattleState.WON;
@@ -78,6 +79,7 @@ public class BattleSystem : MonoBehaviour
 
 		bool isDead = playerUnit.TakeDamage(enemyUnit.damage);
 
+
 		playerHUD.SetHP(playerUnit.currentHP);
 
 		yield return new WaitForSeconds(1f);
@@ -89,6 +91,7 @@ public class BattleSystem : MonoBehaviour
 		} else
 		{
 			state = BattleState.PLAYERTURN;
+			DropzoneObject.SetActive (true);
 			PlayerTurn();
 		}
 
@@ -123,12 +126,12 @@ public class BattleSystem : MonoBehaviour
 		StartCoroutine(EnemyTurn());
 	}
 
-	public void OnAttackButton()
+	public void OnAttackButton(int Dam)
 	{
 		if (state != BattleState.PLAYERTURN)
 			return;
 
-		StartCoroutine(PlayerAttack(5));
+		StartCoroutine(PlayerAttack(Dam));
 	}
 
 	public void OnHealButton()

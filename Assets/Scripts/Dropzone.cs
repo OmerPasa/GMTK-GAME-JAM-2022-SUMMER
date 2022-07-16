@@ -9,11 +9,11 @@ public class Dropzone : MonoBehaviour , IDropHandler, IPointerEnterHandler , IPo
 {
     public GameObject BattleSystem;
     public void OnPointerEnter(PointerEventData eventData){
-        UnityEngine.Debug.Log ("Entered");
+        //UnityEngine.Debug.Log ("Entered");
     }
 
     public void OnPointerExit(PointerEventData eventData){
-        UnityEngine.Debug.Log ("Exited");
+        //UnityEngine.Debug.Log ("Exited");
     }
 
  public void OnDrop (PointerEventData eventData){
@@ -29,24 +29,41 @@ public class Dropzone : MonoBehaviour , IDropHandler, IPointerEnterHandler , IPo
     if (input == "DamageSword")
     {
         //Player.GetDamage(5)
-		StartCoroutine(BattleSystem.GetComponent<BattleSystem>().PlayerAttack(5));
-        
+        BattleSystem.GetComponent<BattleSystem>().OnAttackButton(5);
+        gameObject.SetActive (false);
     }
-    else if (input.ToLower() == "DamageSword2")
+    else if (input == "DamageSword2")
     {
         //Player.GetDamage(5)
-		StartCoroutine(BattleSystem.GetComponent<BattleSystem>().PlayerAttack(5));
-
+        BattleSystem.GetComponent<BattleSystem>().OnAttackButton(10);
+        gameObject.SetActive (false);
     }
-    else if (input.ToLower() == "DamageSword3")
+    else if (input == "DamageSword3")
     {
         //Player.GetDamage(5)
-		StartCoroutine(BattleSystem.GetComponent<BattleSystem>().PlayerAttack(5));
-
+        BattleSystem.GetComponent<BattleSystem>().OnAttackButton(15);
+        gameObject.SetActive (false);
+    }
+    else if (input == "DamageSword4")
+    {
+        //Player.GetDamage(5)
+        BattleSystem.GetComponent<BattleSystem>().OnAttackButton(20);
+        gameObject.SetActive (false);
+    }
+    else if (input == "DamageSword5")
+    {
+        //Player.GetDamage(5)
+        BattleSystem.GetComponent<BattleSystem>().OnAttackButton(25);
+        gameObject.SetActive (false);
+    }
+    else if (input == "DamageSword6")
+    {
+        //Player.GetDamage(5)
+        BattleSystem.GetComponent<BattleSystem>().OnAttackButton(30);
+        gameObject.SetActive (false);
     }else
     {
         gameObject.SetActive (false);
     }
-
  }
 }
