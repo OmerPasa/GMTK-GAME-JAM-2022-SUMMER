@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class cozunurlukAyarla : MonoBehaviour
+public class MenuResolution : MonoBehaviour
 {
     int x;
     int y;

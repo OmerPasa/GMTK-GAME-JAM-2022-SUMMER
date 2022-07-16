@@ -20,9 +20,6 @@ public class Draggable : MonoBehaviour, IBeginDragHandler , IDragHandler , IEndD
         this.transform.SetParent( this.transform.parent.parent);
         Debug.Log("on beginin of drag");
 
-        
-
-
         var mouse = Input.mousePosition;
         card = transform.position;
         diff = card - mouse;

@@ -50,10 +50,10 @@ public class BattleSystem : MonoBehaviour
 		PlayerTurn();
 	}
 
-	IEnumerator PlayerAttack()
+	public IEnumerator PlayerAttack(int BaseDamage)
 	{
-		bool isDead = enemyUnit.TakeDamage(playerUnit.damage);
-
+		bool isDead = enemyUnit.TakeDamage(BaseDamage);
+		Debug.Log (BaseDamage + " amount of damage is given");
 		enemyHUD.SetHP(enemyUnit.currentHP);
 		dialogueText.text = "The attack is successful!";
 
@@ -128,7 +128,7 @@ public class BattleSystem : MonoBehaviour
 		if (state != BattleState.PLAYERTURN)
 			return;
 
-		StartCoroutine(PlayerAttack());
+		StartCoroutine(PlayerAttack(5));
 	}
 
 	public void OnHealButton()

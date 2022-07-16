@@ -16,6 +16,7 @@ public class BattleHUD : MonoBehaviour
 		levelText.text = "Lvl " + unit.unitLevel;
 		hpSlider.maxValue = unit.maxHP;
 		hpSlider.value = unit.currentHP;
+		Debug.Log( unit.currentHP +" is remains");
 	}
 
 	public void SetHP(int hp)
