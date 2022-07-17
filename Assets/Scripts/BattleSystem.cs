@@ -35,7 +35,9 @@ public class BattleSystem : MonoBehaviour
 
 // NEEDS İMPLEMENTATİONS!!!!!!
 
+    public GameObject Player;
 
+    const string PLAYER_IDLE = "Player_Idle";
 
 	private bool isAttacking;
     private bool isTakingDamage;
@@ -55,6 +57,7 @@ public class BattleSystem : MonoBehaviour
 	{
 		GameObject playerGO = Instantiate(playerPrefab, playerBattleStation);
 		playerUnit = playerGO.GetComponent<Unit>();
+		Player.GetComponent<Player>().ChangeAnimationState(PLAYER_IDLE);
 
 		GameObject enemyGO = Instantiate(enemyPrefab, enemyBattleStation);
 		enemyUnit = enemyGO.GetComponent<Unit>();
@@ -96,6 +99,7 @@ public class BattleSystem : MonoBehaviour
 
 	IEnumerator EnemyTurn()
 	{
+		Player.GetComponent<Player>().ChangeAnimationState(PLAYER_IDLE);
 		animationsounds.clip = hasarsoundArray[Random.Range(0,hasarsoundArray.Length)];
 		animationsounds.Play();
 		dialogueText.text = enemyUnit.unitName + " attacks!";
