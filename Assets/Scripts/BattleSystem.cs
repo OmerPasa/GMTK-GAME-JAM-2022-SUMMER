@@ -35,17 +35,8 @@ public class BattleSystem : MonoBehaviour
 
 // NEEDS İMPLEMENTATİONS!!!!!!
 
-	private Animator animator;
-    private string currentAnimaton;
-	const string PLAYER_IDLE = "Player_Idle";
-    const string PLAYER_DODGEBACKWARD = "Player_DodgeBackward";
-    const string PLAYER_DODGEFORWARD = "Player_DodgeForward";
-    const string PLAYER_RUN = "Player_Run";
-    const string PLAYER_JUMP = "Player_Jump_Gun";
-    const string PLAYER_ATTACK = "player_attack";
-    const string PLAYER_AIR_ATTACK = "Player_Jump_Firing";
-    const string PLAYER_DEATH = "Player_Death";
-    const string PLAYER_TAKEDAMAGE = "Player_TakeDamage";
+
+
 	private bool isAttacking;
     private bool isTakingDamage;
     private bool isDying;
@@ -53,13 +44,11 @@ public class BattleSystem : MonoBehaviour
 
     void Start()
     {
-		//ChangeAnimationState(PLAYER_IDLE);
 		AudioSource animationsounds = GameObject.Find("animationsounds").GetComponent<AudioSource>();
 
 		isntDead = true;
 		state = BattleState.START;
 		StartCoroutine(SetupBattle());
-		animator = GetComponent<Animator>();
     }
 
 	IEnumerator SetupBattle()
@@ -84,7 +73,6 @@ public class BattleSystem : MonoBehaviour
 
 	public IEnumerator PlayerAttack(int BaseDamage)
 	{
-		ChangeAnimationState(PLAYER_ATTACK);
 		bool isDead = enemyUnit.TakeDamage(BaseDamage);
 		Debug.Log (BaseDamage + " amount of damage is given");
 		enemyHUD.SetHP(enemyUnit.currentHP);
@@ -192,11 +180,5 @@ public class BattleSystem : MonoBehaviour
 		}
 	}
 
-	    void ChangeAnimationState(string newAnimation)
-    {
-        if (currentAnimaton == newAnimation) return;
 
-        animator.Play(newAnimation);
-        currentAnimaton = newAnimation;
-    }
 }
