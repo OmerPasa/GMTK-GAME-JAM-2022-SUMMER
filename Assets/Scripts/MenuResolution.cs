@@ -10,7 +10,7 @@ public class MenuResolution : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Ayarla();
+        Ayarla();
         
     }
 

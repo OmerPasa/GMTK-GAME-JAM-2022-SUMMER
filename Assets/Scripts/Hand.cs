@@ -5,9 +5,10 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 
-public class Deck : MonoBehaviour , IDropHandler, IPointerEnterHandler , IPointerExitHandler
+public class Hand : MonoBehaviour , IDropHandler, IPointerEnterHandler , IPointerExitHandler
 {
     public GameObject BattleSystem;
+
     public void OnPointerEnter(PointerEventData eventData){
         //UnityEngine.Debug.Log ("Entered");
     }

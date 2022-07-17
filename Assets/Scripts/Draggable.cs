@@ -10,12 +10,18 @@ public class Draggable : MonoBehaviour, IBeginDragHandler , IDragHandler , IEndD
     Vector3 diff;
     LayoutElement BoolBoy;
     public Transform parentToReturnTo = null;
+    public AudioClip cardselect;
+    public AudioSource cardsounds;
     void Start() {
         BoolBoy = GetComponent<LayoutElement>();
+        AudioSource cardsounds = GameObject.Find("cardsounds").GetComponent<AudioSource>();
+
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        cardsounds.clip= cardselect;
+        cardsounds.Play();        
         parentToReturnTo = this.transform.parent;
         this.transform.SetParent( this.transform.parent.parent);
         Debug.Log("on beginin of drag");

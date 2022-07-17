@@ -91,6 +91,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentToReturnTo: {fileID: 0}
+  cardselect: {fileID: 8300000, guid: 7b6408710675b3b439736ed4b5b9e8ef, type: 3}
+  cardsounds: {fileID: 0}
 --- !u!114 &6604574771168660322
 MonoBehaviour:
   m_ObjectHideFlags: 0
