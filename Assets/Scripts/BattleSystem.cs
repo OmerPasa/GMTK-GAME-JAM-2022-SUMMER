@@ -148,10 +148,11 @@ public class BattleSystem : MonoBehaviour
 	public void OnDrawCard()
 	{
 		GameObject randCard = Cards[Random.Range(0, Cards.Count)];
+		Transform parent = Hand.transform;
 
 		if (Hand.transform.childCount < 6)
 		{
-			randCard.transform.SetParent(Hand.transform , false);
+			randCard.transform.SetParent(parent, false);
 		}
 	}
 

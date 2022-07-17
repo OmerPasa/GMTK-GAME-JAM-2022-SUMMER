@@ -8,6 +8,7 @@ using UnityEngine.EventSystems;
 public class Dropzone : MonoBehaviour , IDropHandler
 {
     public GameObject BattleSystem;
+    public GameObject Deck;
 
  public void OnDrop (PointerEventData eventData){
     UnityEngine.Debug.Log (eventData.pointerDrag.name + "was dropped onto" + gameObject.name);
@@ -15,7 +16,7 @@ public class Dropzone : MonoBehaviour , IDropHandler
     Draggable d = eventData.pointerDrag.GetComponent<Draggable>();
     if (d != null)
     {
-        d.parentToReturnTo = this.transform;
+        d.parentToReturnTo = Deck.transform;
     }
     
     
