@@ -53,7 +53,7 @@ public class BattleSystem : MonoBehaviour
 
     void Start()
     {
-		ChangeAnimationState(PLAYER_IDLE);
+		//ChangeAnimationState(PLAYER_IDLE);
 		AudioSource animationsounds = GameObject.Find("animationsounds").GetComponent<AudioSource>();
 
 		isntDead = true;
