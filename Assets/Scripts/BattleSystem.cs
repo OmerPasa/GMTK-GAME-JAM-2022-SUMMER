@@ -38,9 +38,14 @@ public class BattleSystem : MonoBehaviour
 	private Animator animator;
     private string currentAnimaton;
 	const string PLAYER_IDLE = "Player_Idle";
-
+    const string PLAYER_DODGEBACKWARD = "Player_DodgeBackward";
+    const string PLAYER_DODGEFORWARD = "Player_DodgeForward";
+    const string PLAYER_RUN = "Player_Run";
+    const string PLAYER_JUMP = "Player_Jump_Gun";
     const string PLAYER_ATTACK = "player_attack";
-	const string PLAYER_ATTACK2 = "player_attack2";
+    const string PLAYER_AIR_ATTACK = "Player_Jump_Firing";
+    const string PLAYER_DEATH = "Player_Death";
+    const string PLAYER_TAKEDAMAGE = "Player_TakeDamage";
 	private bool isAttacking;
     private bool isTakingDamage;
     private bool isDying;
@@ -48,7 +53,7 @@ public class BattleSystem : MonoBehaviour
 
     void Start()
     {
-		ChangeAnimationState(PLAYER_IDLE);
+		//ChangeAnimationState(PLAYER_IDLE);
 		AudioSource animationsounds = GameObject.Find("animationsounds").GetComponent<AudioSource>();
 
 		isntDead = true;
